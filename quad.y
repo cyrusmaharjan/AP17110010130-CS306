@@ -55,7 +55,7 @@ yyparse();
 int yywrap(){
 return 1;
 }
-void yyerror(char *s)
+int yyerror(char *s)
 {
 printf("%s",s);
 }

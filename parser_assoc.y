@@ -1,7 +1,7 @@
 %{
 #include<stdio.h>
 %}
-%token DIGIT
+%token NUMBER
 %left '-' '+'
 %left '*' '/'
 %nonassoc UMINUS
@@ -18,7 +18,7 @@ else
 $$ = $1 / $3; }
 | '-'E %prec UMINUS { $$ = -$2; }
 | '(' E ')' { $$ = $2; }
-| DIGIT {$$ = $1;}
+| NUMBER {$$ = $1;}
 ;
 %%
 int main()
@@ -28,6 +28,6 @@ yyparse();
 int yywrap(){
 return 1;
 }
-void yyerror(char *s){
+int yyerror(char *s){
 printf("Error %s",s);exit(0);
 }

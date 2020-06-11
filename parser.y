@@ -1,6 +1,7 @@
 %{
 #include<stdio.h>
 %}
+
 %token NUMBER
 %%
 S: E { printf("The result is =%d\n",$1);}
@@ -21,6 +22,6 @@ yyparse();
 int yywrap(){
 return 1;
 }
-void yyerror(char *s){
+int yyerror(char *s){
 printf("Error %s",s);
 }
